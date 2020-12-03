@@ -1,0 +1,49 @@
+<div id="out">
+
+</div>
+
+<script>
+
+fetch('/1/input.txt')
+.then(response => response.text())
+.then(text => {
+    find(text.split('\n')); 
+    find2(text.split('\n'));
+})
+
+let j = 1;
+
+function find(arr) {
+    for (i = 0; i < arr.length; i++) { 
+        result = parseInt(arr[i]) + parseInt(arr[j]);
+        if (i != j) {
+            // console.log(`${i} + ${j} = ${result}`);
+            if (result == 2020) {
+                result = arr[i] * arr[j];
+                return console.log(result);
+            }
+        }
+    }
+    if (i == arr.length) {
+        j++
+    }
+        
+    if (j < arr.length) {
+        find(arr);
+    }
+}
+
+function find2(arr) {
+    for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < arr.length; j++) {
+            for (k = 0; k < arr.length; k++) {
+                if (parseInt(arr[i]) + parseInt(arr[j]) + parseInt(arr[k]) == 2020) {
+                    console.log(parseInt(arr[i])*parseInt(arr[j])*parseInt(arr[k]))
+                }
+            }
+        }
+    }
+}
+
+
+</script>
