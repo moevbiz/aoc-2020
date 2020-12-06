@@ -1,4 +1,5 @@
 // open the console on the input page
+// https://adventofcode.com/2020/day/6/input
 
 // 6.1
 document.body.textContent.split('\n\n').map(s => s.split('').filter((item, pos, self) => {return self.indexOf(item) == pos;}).join('').replace('\n', '')).map(t => t.length).reduce((a, b) => {return a + b;}, 0);
